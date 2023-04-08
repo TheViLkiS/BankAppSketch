@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Chart Card ( Horizontal ).png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Chart Card ( Horizontal )@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Chart Card ( Horizontal )@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

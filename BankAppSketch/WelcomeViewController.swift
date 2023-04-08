@@ -18,6 +18,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     var buttonSignUpAccount = UIButton()
     var buttonSignUpPhone = UIButton()
     var buttonSignIn = UIButton()
+    let labelThree = UILabel(frame: CGRect(x: 0, y: 0, width: 295, height: 36))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,7 +148,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
        
         //Label Three
         
-        let labelThree = UILabel(frame: CGRect(x: 0, y: 0, width: 295, height: 36))
+        
         
         labelThree.textColor = .dark.withAlphaComponent(0.5)
         labelThree.text = """
@@ -172,6 +173,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         buttonSignUpAccount.titleLabel?.textColor = .white
         buttonSignUpAccount.backgroundColor = .darkSkyBlue
         buttonSignUpAccount.layer.cornerRadius = 10
+        buttonSignUpAccount.addTarget(self, action: #selector(accountCreated), for: .touchUpInside)
         view.addSubview(buttonSignUpAccount)
 
         buttonSignUpAccount.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 410).isActive = true
@@ -222,15 +224,20 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         present(vc, animated: true)
     }
     @objc func signUpPhone(){
-        let vc = MobileNumberViewController()
-        vc.view.backgroundColor = .white
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        if checkmarkButton.isSelected == true {
+            let vc = MobileNumberViewController()
+            vc.view.backgroundColor = .white
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        } else {
+            labelThree.textColor = .systemPink
+        }
     }
     
 
     @objc func checkMark() {
         checkmarkButton.isSelected.toggle()
+        labelThree.textColor = .dark.withAlphaComponent(0.5)
     }
     
     
@@ -264,6 +271,21 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             textFieldPassword.isSecureTextEntry.toggle()
             buttonEye.isSelected.toggle()
         }
+    
+    @objc func accountCreated(){
+        
+        if checkmarkButton.isSelected == true {
+            
+            
+            let vc = AccountCreatedViewController()
+            vc.view.backgroundColor = .white
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        } else {
+            labelThree.textColor = .systemPink
+
+        }
+    }
     
 }
 

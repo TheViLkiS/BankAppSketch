@@ -18,6 +18,7 @@ class VerifAccViewController: UIViewController, UITextFieldDelegate {
     let viewThree = UIView()
     let viewFour = UIView()
     var buttonReSendCode = UIButton()
+    var buttonProceed = UIButton()
     
     
     override func viewDidLoad() {
@@ -177,9 +178,11 @@ class VerifAccViewController: UIViewController, UITextFieldDelegate {
         
         // buttonReSendCode
         
+        let attribute: [NSAttributedString.Key : Any] = [NSAttributedString.Key.underlineColor: UIColor.darkSkyBlue, NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+        let tittleAttr = NSAttributedString(string: "Resend Code", attributes: attribute)
         
         
-        buttonReSendCode.setTitle("Resend Code", for: .normal)
+        buttonReSendCode.setAttributedTitle(tittleAttr, for: .normal)
         buttonReSendCode.titleLabel?.font = UIFont(name: "Helvetica", size: 18)
         buttonReSendCode.setTitleColor(.darkSkyBlue, for: .normal)
         buttonReSendCode.backgroundColor = .clear
@@ -192,8 +195,66 @@ class VerifAccViewController: UIViewController, UITextFieldDelegate {
         buttonReSendCode.heightAnchor.constraint(equalToConstant: 23).isActive = true
         buttonReSendCode.translatesAutoresizingMaskIntoConstraints = false
         
+        
+        // buttonProceed
+        buttonProceed.setTitle("Proceed", for: .normal)
+        buttonProceed.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
+        buttonProceed.titleLabel?.textColor = .white
+        buttonProceed.backgroundColor = .darkSkyBlue
+        buttonProceed.layer.cornerRadius = 10
+        view.addSubview(buttonProceed)
+
+        buttonProceed.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -169).isActive = true
+        buttonProceed.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
+        buttonProceed.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
+        buttonProceed.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        buttonProceed.translatesAutoresizingMaskIntoConstraints = false
+        buttonProceed.addTarget(self, action: #selector(proceed), for: .touchUpInside)
+        
+        
+        //textViewBottom Four
+        
+        let attributedString = NSMutableAttributedString(string: "by clicking start, you agree to our Privacy Policy our Teams and Conditions")
+        attributedString.addAttribute(.link, value: "https://t.me/vilkis", range: .init(location: 36, length: 14))
+        attributedString.addAttribute(.link, value: "https://t.me/vilkis", range: .init(location: 55, length: 20))
+        
+        
+        let textViewBottom = UITextView()
+        
+        textViewBottom.backgroundColor = .clear
+        textViewBottom.textColor = UIColor.dark.withAlphaComponent(0.5)
+        textViewBottom.attributedText = attributedString
+        textViewBottom.font = UIFont(name: "Helvetica", size: 13)
+        textViewBottom.isScrollEnabled = false
+        textViewBottom.isEditable = false
+        textViewBottom.textAlignment = .center
+        textViewBottom.isUserInteractionEnabled = true
+        textViewBottom.linkTextAttributes = [
+            .foregroundColor: UIColor.darkSkyBlue,
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+        
+        
+        view.addSubview(textViewBottom)
+        
+        textViewBottom.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 22).isActive = true
+        textViewBottom.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 48).isActive = true
+        textViewBottom.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -48).isActive = true
+        textViewBottom.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        textViewBottom.translatesAutoresizingMaskIntoConstraints = false
+
 
     }
+    
+    
+    @objc func proceed(){
+        let vc = AccountCreatedViewController()
+        vc.view.backgroundColor = .white
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         viewOne.backgroundColor = .black
         viewTwo.backgroundColor = .black
