@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank EC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0l-8g-w65">
-                                <rect key="frame" x="40" y="359" width="297" height="81"/>
+                                <rect key="frame" x="30" y="359" width="317" height="81"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="70"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -25,7 +25,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank, Finance Kit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epb-Na-Oln">
                                 <rect key="frame" x="118" y="449" width="157" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="157" id="5WW-MC-53n"/>
                                     <constraint firstAttribute="height" constant="29" id="9f8-K0-QWt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
@@ -39,8 +38,8 @@
                             <constraint firstItem="Epb-Na-Oln" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Fp6-YZ-Iml"/>
                             <constraint firstItem="Epb-Na-Oln" firstAttribute="top" secondItem="j0l-8g-w65" secondAttribute="bottom" constant="9" id="Obs-am-58k"/>
                             <constraint firstItem="j0l-8g-w65" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="VdN-Ii-pCm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="j0l-8g-w65" secondAttribute="trailing" constant="40" id="e7D-sV-Ypu"/>
-                            <constraint firstItem="j0l-8g-w65" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="kYR-ra-v38"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j0l-8g-w65" secondAttribute="trailing" constant="30" id="e7D-sV-Ypu"/>
+                            <constraint firstItem="j0l-8g-w65" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="kYR-ra-v38"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -64,7 +64,6 @@ class MobileNumberViewController: UIViewController, UITextFieldDelegate {
         phoneField.layer.shadowRadius = 7.0
         phoneField.layer.shadowOpacity = 0.15
         phoneField.layer.masksToBounds = false
-        
         phoneField.indent(size: 20)
         phoneField.textColor = .darkTwo
         

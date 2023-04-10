@@ -18,7 +18,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     var buttonSignUpAccount = UIButton()
     var buttonSignUpPhone = UIButton()
     var buttonSignIn = UIButton()
-    let labelThree = UILabel(frame: CGRect(x: 0, y: 0, width: 295, height: 36))
+    let labelThree = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,60 +31,32 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         // Скрытие клавиатуры
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
         view.addGestureRecognizer(tapGesture)
-        
-        
-        
+
         
         // Label One
-        let labelWellcome = UILabel(frame: CGRect(x: 0, y: 0, width: 156, height: 42))
-        labelWellcome.textColor = UIColor.dark
-        labelWellcome.text = "Welcome!"
-        labelWellcome.font = UIFont(name: "Helvetica", size: 35)
-        labelWellcome.textAlignment = .center
-        
-        view.addSubview(labelWellcome)
+        let labelWellcome = UILabel()
+        createLabel(label: labelWellcome, text: "Welcome!", size: 35, color: .dark)
         labelWellcome.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 113).isActive = true
-        labelWellcome.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        labelWellcome.translatesAutoresizingMaskIntoConstraints = false
-        
-        
+
         //Label Two
         
-        let labelTwo = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 50))
+        let labelTwo = UILabel()
         
-        labelTwo.textColor = UIColor.dark.withAlphaComponent(0.5)
-        labelTwo.text = """
+        createLabel(label: labelTwo, text: """
         Please provide following
         details for your new account
-        """
-        labelTwo.font = UIFont(name: "Helvetica", size: 15)
-        labelTwo.numberOfLines = 2
-        labelTwo.textAlignment = .center
+        """, size: 15, lines: 2)
         
-        view.addSubview(labelTwo)
         labelTwo.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 26).isActive = true
         labelTwo.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 48).isActive = true
         labelTwo.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -48).isActive = true
-        labelTwo.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        labelTwo.translatesAutoresizingMaskIntoConstraints = false
         
         
         // TextField1
+
         
-        
-        textFieldFullName.placeholder = "Full Name"
-        textFieldFullName.backgroundColor = .whiteBank
-        textFieldFullName.layer.cornerRadius = 10
-        textFieldFullName.indent(size: 20)
-        textFieldFullName.textColor = .darkTwo
-        
-        
-        view.addSubview(textFieldFullName)
-        textFieldFullName.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 137).isActive = true
-        textFieldFullName.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
-        textFieldFullName.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
-        textFieldFullName.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        textFieldFullName.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        createTextField(textField: textFieldFullName, name: "Full Name")
+        constraintTo(obj: textFieldFullName, to: labelWellcome, const: 137)
         textFieldFullName.translatesAutoresizingMaskIntoConstraints = false
         
         
@@ -92,43 +64,18 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         // TextField2
         
         
-        textFieldEmail.placeholder = "Email Address"
-        textFieldEmail.backgroundColor = .whiteBank
-        textFieldEmail.layer.cornerRadius = 10
-        textFieldEmail.indent(size: 20)
-        textFieldEmail.textColor = .darkTwo
-        
-        
-        view.addSubview(textFieldEmail)
-        textFieldEmail.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 192).isActive = true
-        textFieldEmail.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
-        textFieldEmail.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
-        textFieldEmail.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        textFieldEmail.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        createTextField(textField: textFieldEmail, name: "Email Address")
+        constraintTo(obj: textFieldEmail, to: labelWellcome, const: 192)
         textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
         textFieldEmail.keyboardType = .emailAddress
         
         //TextField3
         
-        
-        textFieldPassword.placeholder = "Password"
-        textFieldPassword.backgroundColor = .whiteBank
-        textFieldPassword.layer.cornerRadius = 10
-        textFieldPassword.indent(size: 20)
         textFieldPassword.eye(button: buttonEye)
-        textFieldPassword.textColor = .darkTwo
         textFieldPassword.isSecureTextEntry = true
-        
         buttonEye.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
-        
-        
-        
-        view.addSubview(textFieldPassword)
-        textFieldPassword.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 247).isActive = true
-        textFieldPassword.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
-        textFieldPassword.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
-        textFieldPassword.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        textFieldPassword.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        createTextField(textField: textFieldPassword, name: "Password")
+        constraintTo(obj: textFieldPassword, to: labelWellcome, const: 247)
         textFieldPassword.translatesAutoresizingMaskIntoConstraints = false
         
         // checkmarkButton
@@ -147,72 +94,69 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         checkmarkButton.translatesAutoresizingMaskIntoConstraints = false
        
         //Label Three
-        
-        
-        
-        labelThree.textColor = .dark.withAlphaComponent(0.5)
-        labelThree.text = """
+
+        createLabel(label: labelThree, text: """
         By creating your account you have to agree with our Teams and Conditions.
-        """
-        labelThree.font = UIFont(name: "Helvetica", size: 13)
-        labelThree.numberOfLines = 2
-        labelThree.textAlignment = .left
-        
-        view.addSubview(labelThree)
+        """, size: 13, lines: 2, aligment: .left, center: false)
+
         labelThree.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 326).isActive = true
         labelThree.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 77).isActive = true
         labelThree.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -42).isActive = true
-//        labelThree.heightAnchor.constraint(equalToConstant: 36).isActive = true
-//        labelThree.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        labelThree.translatesAutoresizingMaskIntoConstraints = false
-        
+//        labelThree.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = false
+
         
         // buttonSignUpAccount
-        buttonSignUpAccount.setTitle("Sign up my Account", for: .normal)
-        buttonSignUpAccount.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
-        buttonSignUpAccount.titleLabel?.textColor = .white
-        buttonSignUpAccount.backgroundColor = .darkSkyBlue
-        buttonSignUpAccount.layer.cornerRadius = 10
+        
+        createButton(button: buttonSignUpAccount, text: "Sign up my Account", constraintTo: labelWellcome, const: 410)
+//        buttonSignUpAccount.setTitle("Sign up my Account", for: .normal)
+//        buttonSignUpAccount.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
+//        buttonSignUpAccount.titleLabel?.textColor = .white
+//        buttonSignUpAccount.backgroundColor = .darkSkyBlue
+//        buttonSignUpAccount.layer.cornerRadius = 10
         buttonSignUpAccount.addTarget(self, action: #selector(accountCreated), for: .touchUpInside)
-        view.addSubview(buttonSignUpAccount)
-
-        buttonSignUpAccount.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 410).isActive = true
-        buttonSignUpAccount.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
-        buttonSignUpAccount.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
-        buttonSignUpAccount.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        buttonSignUpAccount.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(buttonSignUpAccount)
+//
+//        buttonSignUpAccount.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 410).isActive = true
+//        buttonSignUpAccount.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
+//        buttonSignUpAccount.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
+//        buttonSignUpAccount.heightAnchor.constraint(equalToConstant: 60).isActive = true
+//        buttonSignUpAccount.translatesAutoresizingMaskIntoConstraints = false
 
         
         // buttonSignUpPhone
-        buttonSignUpPhone.setTitle("Sign up with Phone Number", for: .normal)
-        buttonSignUpPhone.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
-        buttonSignUpPhone.titleLabel?.textColor = .white
-        buttonSignUpPhone.backgroundColor = .dark
-        buttonSignUpPhone.layer.cornerRadius = 10
-        view.addSubview(buttonSignUpPhone)
-
-        buttonSignUpPhone.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 477).isActive = true
-        buttonSignUpPhone.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
-        buttonSignUpPhone.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
-        buttonSignUpPhone.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        buttonSignUpPhone.translatesAutoresizingMaskIntoConstraints = false
-        buttonSignUpPhone.addTarget(self, action: #selector(signUpPhone), for: .touchUpInside)
         
+        createButton(button: buttonSignUpPhone, text: "Sign up with Phone Number", constraintTo: labelWellcome, const: 477, color: .dark)
+//        buttonSignUpPhone.setTitle("Sign up with Phone Number", for: .normal)
+//        buttonSignUpPhone.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
+//        buttonSignUpPhone.titleLabel?.textColor = .white
+//        buttonSignUpPhone.backgroundColor = .dark
+//        buttonSignUpPhone.layer.cornerRadius = 10
+//        view.addSubview(buttonSignUpPhone)
+//
+//        buttonSignUpPhone.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 477).isActive = true
+//        buttonSignUpPhone.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
+//        buttonSignUpPhone.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
+//        buttonSignUpPhone.heightAnchor.constraint(equalToConstant: 60).isActive = true
+//        buttonSignUpPhone.translatesAutoresizingMaskIntoConstraints = false
+        buttonSignUpPhone.addTarget(self, action: #selector(signUpPhone), for: .touchUpInside)
+//
         //buttonSignIn
 
 
-        buttonSignIn.setTitle("Already have an account? - Sign In", for: .normal)
-        buttonSignIn.setTitleColor(.dark.withAlphaComponent(0.5), for: .normal)
-        buttonSignIn.titleLabel?.font = UIFont(name: "Helvetica", size: 15)
-
+        createButton(button: buttonSignIn, text: "Already have an account? - Sign In", constraintTo: labelWellcome, const: 540, color: .clear, textColor: .dark.withAlphaComponent(0.5), size: 15)
         
-        
-        view.addSubview(buttonSignIn)
-        buttonSignIn.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 557).isActive = true
-        buttonSignIn.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 70).isActive = true
-        buttonSignIn.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -70).isActive = true
-        buttonSignIn.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        buttonSignIn.translatesAutoresizingMaskIntoConstraints = false
+//        buttonSignIn.setTitle("Already have an account? - Sign In", for: .normal)
+//        buttonSignIn.setTitleColor(.dark.withAlphaComponent(0.5), for: .normal)
+//        buttonSignIn.titleLabel?.font = UIFont(name: "Helvetica", size: 15)
+//
+//
+//
+//        view.addSubview(buttonSignIn)
+//        buttonSignIn.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 557).isActive = true
+//        buttonSignIn.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 70).isActive = true
+//        buttonSignIn.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -70).isActive = true
+//        buttonSignIn.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+//        buttonSignIn.translatesAutoresizingMaskIntoConstraints = false
         buttonSignIn.addTarget(self, action: #selector(signIn), for: .touchUpInside)
     }
     

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Card with icons and text.png",
+      "filename" : "Character Card.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Card with icons and text@2x.png",
+      "filename" : "Character Card@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Card with icons and text@3x.png",
+      "filename" : "Character Card@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

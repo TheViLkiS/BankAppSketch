@@ -65,61 +65,16 @@ class VerifAccViewController: UIViewController, UITextFieldDelegate {
 
 
         // textFieldSMS
-        
-        smsOne.textColor = .darkSkyBlue
-        smsOne.backgroundColor = .clear
-        smsOne.font = UIFont(name: "Helvetica", size: 35)
-        view.addSubview(smsOne)
-        smsOne.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 142).isActive = true
+
+        createTextFieldSMS(textField: smsOne, constTo: labelWellcome)
         smsOne.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30).isActive = true
-        smsOne.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        smsOne.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        smsOne.translatesAutoresizingMaskIntoConstraints = false
-        smsOne.keyboardType = .numberPad
-        smsOne.textAlignment = .center
-        smsOne.tintColor = .clear
         
-        smsTwo.textColor = .darkSkyBlue
-        smsTwo.backgroundColor = .clear
-        smsTwo.font = UIFont(name: "Helvetica", size: 35)
-        view.addSubview(smsTwo)
-        smsTwo.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 142).isActive = true
+        createTextFieldSMS(textField: smsTwo, constTo: labelWellcome)
         smsTwo.leadingAnchor.constraint(equalTo: self.smsOne.trailingAnchor, constant: 22).isActive = true
-        smsTwo.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        smsTwo.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        smsTwo.translatesAutoresizingMaskIntoConstraints = false
-        smsTwo.keyboardType = .numberPad
-        smsTwo.textAlignment = .center
-        smsTwo.tintColor = .clear
-
-        smsThree.textColor = .darkSkyBlue
-        smsThree.backgroundColor = .clear
-        smsThree.font = UIFont(name: "Helvetica", size: 35)
-        view.addSubview(smsThree)
-        smsThree.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 142).isActive = true
         
-        smsThree.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        smsThree.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        smsThree.translatesAutoresizingMaskIntoConstraints = false
-        smsThree.keyboardType = .numberPad
-        smsThree.textAlignment = .center
-        smsThree.tintColor = .clear
-
-        
-        smsFour.textColor = .darkSkyBlue
-        smsFour.backgroundColor = .clear
-        smsFour.font = UIFont(name: "Helvetica", size: 35)
-        view.addSubview(smsFour)
-        smsFour.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 142).isActive = true
+        createTextFieldSMS(textField: smsThree, constTo: labelWellcome)
+       createTextFieldSMS(textField: smsFour, constTo: labelWellcome)
         smsFour.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30).isActive = true
-        smsFour.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        smsFour.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        smsFour.translatesAutoresizingMaskIntoConstraints = false
-        smsFour.keyboardType = .numberPad
-        smsFour.textAlignment = .center
-        smsFour.tintColor = .clear
-        
-        //!!!
         smsThree.trailingAnchor.constraint(equalTo: self.smsFour.leadingAnchor, constant: -22).isActive = true
         
         //View bottom
@@ -244,6 +199,7 @@ class VerifAccViewController: UIViewController, UITextFieldDelegate {
         textViewBottom.translatesAutoresizingMaskIntoConstraints = false
 
 
+        smsOne.becomeFirstResponder()
     }
     
     

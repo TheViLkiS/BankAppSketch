@@ -73,43 +73,45 @@ class WelcomeBackViewController: UIViewController, UITextFieldDelegate {
         // TextField2
         
         
-        textFieldEmail.placeholder = "Email"
-        textFieldEmail.backgroundColor = .whiteBank
-        textFieldEmail.layer.cornerRadius = 10
-        textFieldEmail.indent(size: 20)
-        textFieldEmail.textColor = .darkTwo
+//        textFieldEmail.placeholder = "Email"
+//        textFieldEmail.backgroundColor = .whiteBank
+//        textFieldEmail.layer.cornerRadius = 10
+//        textFieldEmail.indent(size: 20)
+//        textFieldEmail.textColor = .darkTwo
         
         
-        view.addSubview(textFieldEmail)
-        textFieldEmail.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 137).isActive = true
-        textFieldEmail.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
-        textFieldEmail.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
-        textFieldEmail.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        textFieldEmail.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        createTextField(textField: textFieldEmail, name: "Email")
+        constraintTo(obj: textFieldEmail, to: labelWellcome, const: 137)
+//        textFieldEmail.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 137).isActive = true
+//        textFieldEmail.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
+//        textFieldEmail.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
+//        textFieldEmail.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+//        textFieldEmail.heightAnchor.constraint(equalToConstant: 50).isActive = true
         textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
         textFieldEmail.keyboardType = .emailAddress
         
         //TextField3
         
         
-        textFieldPassword.placeholder = "Password"
-        textFieldPassword.backgroundColor = .whiteBank
-        textFieldPassword.layer.cornerRadius = 10
-        textFieldPassword.indent(size: 20)
+//        textFieldPassword.placeholder = "Password"
+//        textFieldPassword.backgroundColor = .whiteBank
+//        textFieldPassword.layer.cornerRadius = 10
+//        textFieldPassword.indent(size: 20)
         textFieldPassword.eye(button: buttonEye)
-        textFieldPassword.textColor = .darkTwo
+//        textFieldPassword.textColor = .darkTwo
         textFieldPassword.isSecureTextEntry = true
         
         buttonEye.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
         
         
         
-        view.addSubview(textFieldPassword)
-        textFieldPassword.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 192).isActive = true
-        textFieldPassword.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
-        textFieldPassword.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
-        textFieldPassword.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        textFieldPassword.heightAnchor.constraint(equalToConstant: 50).isActive = true
+       createTextField(textField: textFieldPassword, name: "Password")
+        constraintTo(obj: textFieldPassword, to: labelWellcome, const: 192)
+//        textFieldPassword.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 192).isActive = true
+//        textFieldPassword.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
+//        textFieldPassword.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
+//        textFieldPassword.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+//        textFieldPassword.heightAnchor.constraint(equalToConstant: 50).isActive = true
         textFieldPassword.translatesAutoresizingMaskIntoConstraints = false
         
         
