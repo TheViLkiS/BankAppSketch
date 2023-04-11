@@ -9,10 +9,10 @@ import UIKit
 
 class VerifAccViewController: UIViewController, UITextFieldDelegate {
 
-    var smsOne = UITextField(frame: CGRect(x: 0, y: 0, width: 20, height: 50))
-    var smsTwo = UITextField(frame: CGRect(x: 0, y: 0, width: 20, height: 50))
-    var smsThree = UITextField(frame: CGRect(x: 0, y: 0, width: 20, height: 50))
-    var smsFour = UITextField(frame: CGRect(x: 0, y: 0, width: 20, height: 50))
+    var smsOne = UITextField()
+    var smsTwo = UITextField()
+    var smsThree = UITextField()
+    var smsFour = UITextField()
     let viewOne = UIView()
     let viewTwo = UIView()
     let viewThree = UIView()
@@ -34,35 +34,20 @@ class VerifAccViewController: UIViewController, UITextFieldDelegate {
         
         
         // Label One
-        let labelWellcome = UILabel(frame: CGRect(x: 0, y: 0, width: 156, height: 42))
-        labelWellcome.textColor = UIColor.dark
-        labelWellcome.text = "Verify Account!"
-        labelWellcome.font = UIFont(name: "Helvetica", size: 35)
-        labelWellcome.textAlignment = .center
-        
-        view.addSubview(labelWellcome)
+        let labelWellcome = UILabel()
+        createLabel(label: labelWellcome, text: "Verify Account!", size: 35, color: .dark)
+
         labelWellcome.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 113).isActive = true
-        labelWellcome.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        labelWellcome.translatesAutoresizingMaskIntoConstraints = false
-        
+
         
         //Label Two
         
-        let labelTwo = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 50))
-        
-        labelTwo.textColor = UIColor.dark.withAlphaComponent(0.5)
-        labelTwo.text = "Enter 4-digit Code code we have sent to at +7 999 000 0000."
-        labelTwo.font = UIFont(name: "Helvetica", size: 15)
-        labelTwo.numberOfLines = 2
-        labelTwo.textAlignment = .center
-        
-        view.addSubview(labelTwo)
+        let labelTwo = UILabel()
+        createLabel(label: labelTwo, text: "Enter 4-digit Code code we have sent to at +7 999 000 0000.", size: 15, lines: 2)
+
         labelTwo.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 26).isActive = true
         labelTwo.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 48).isActive = true
         labelTwo.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -48).isActive = true
-        labelTwo.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        labelTwo.translatesAutoresizingMaskIntoConstraints = false
-
 
         // textFieldSMS
 
@@ -152,52 +137,13 @@ class VerifAccViewController: UIViewController, UITextFieldDelegate {
         
         
         // buttonProceed
-        buttonProceed.setTitle("Proceed", for: .normal)
-        buttonProceed.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
-        buttonProceed.titleLabel?.textColor = .white
-        buttonProceed.backgroundColor = .darkSkyBlue
-        buttonProceed.layer.cornerRadius = 10
-        view.addSubview(buttonProceed)
-
-        buttonProceed.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -169).isActive = true
-        buttonProceed.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
-        buttonProceed.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
-        buttonProceed.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        buttonProceed.translatesAutoresizingMaskIntoConstraints = false
+        createButton(button: buttonProceed, text: "Proceed", constraintTo: labelWellcome, const: 480)
         buttonProceed.addTarget(self, action: #selector(proceed), for: .touchUpInside)
         
         
         //textViewBottom Four
         
-        let attributedString = NSMutableAttributedString(string: "by clicking start, you agree to our Privacy Policy our Teams and Conditions")
-        attributedString.addAttribute(.link, value: "https://t.me/vilkis", range: .init(location: 36, length: 14))
-        attributedString.addAttribute(.link, value: "https://t.me/vilkis", range: .init(location: 55, length: 20))
-        
-        
-        let textViewBottom = UITextView()
-        
-        textViewBottom.backgroundColor = .clear
-        textViewBottom.textColor = UIColor.dark.withAlphaComponent(0.5)
-        textViewBottom.attributedText = attributedString
-        textViewBottom.font = UIFont(name: "Helvetica", size: 13)
-        textViewBottom.isScrollEnabled = false
-        textViewBottom.isEditable = false
-        textViewBottom.textAlignment = .center
-        textViewBottom.isUserInteractionEnabled = true
-        textViewBottom.linkTextAttributes = [
-            .foregroundColor: UIColor.darkSkyBlue,
-            .underlineStyle: NSUnderlineStyle.single.rawValue
-        ]
-        
-        
-        view.addSubview(textViewBottom)
-        
-        textViewBottom.topAnchor.constraint(equalTo: buttonProceed.bottomAnchor, constant: 22).isActive = true
-        textViewBottom.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 48).isActive = true
-        textViewBottom.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -48).isActive = true
-        textViewBottom.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        textViewBottom.translatesAutoresizingMaskIntoConstraints = false
-
+        addTextViewBottom()
 
         smsOne.becomeFirstResponder()
     }

@@ -23,35 +23,21 @@ class MobileNumberViewController: UIViewController, UITextFieldDelegate {
         
 
         // Label One
-        let labelWellcome = UILabel(frame: CGRect(x: 0, y: 0, width: 156, height: 42))
-        labelWellcome.textColor = UIColor.dark
-        labelWellcome.text = "Mobile Number"
-        labelWellcome.font = UIFont(name: "Helvetica", size: 35)
-        labelWellcome.textAlignment = .center
-        
-        view.addSubview(labelWellcome)
+        let labelWellcome = UILabel()
+        createLabel(label: labelWellcome, text: "Mobile Number", size: 35, color: .dark)
+
         labelWellcome.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 113).isActive = true
-        labelWellcome.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        labelWellcome.translatesAutoresizingMaskIntoConstraints = false
-        
-        
+
         //Label Two
-        
-        let labelTwo = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 50))
-        
-        labelTwo.textColor = UIColor.dark.withAlphaComponent(0.5)
-        labelTwo.text = "Please enter your valid phone number. We will send you 4-digit code to verify account."
-        labelTwo.numberOfLines = 2
-        labelTwo.font = UIFont(name: "Helvetica", size: 15)
-        labelTwo.textAlignment = .center
-        
-        view.addSubview(labelTwo)
+//
+        let labelTwo = UILabel()
+        createLabel(label: labelTwo, text: "Please enter your valid phone number. We will send you 4-digit code to verify account.", size: 15, lines: 2)
+
+
         labelTwo.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 26).isActive = true
         labelTwo.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 42).isActive = true
         labelTwo.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -42).isActive = true
-        labelTwo.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        labelTwo.translatesAutoresizingMaskIntoConstraints = false
-        
+
         
             //PhoneField
         
@@ -78,18 +64,13 @@ class MobileNumberViewController: UIViewController, UITextFieldDelegate {
         
         
         // buttonSendCode
-        buttonSendCode.setTitle("Send Code", for: .normal)
-        buttonSendCode.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
-        buttonSendCode.titleLabel?.textColor = .white
-        buttonSendCode.backgroundColor = .darkSkyBlue
-        buttonSendCode.layer.cornerRadius = 10
-        view.addSubview(buttonSendCode)
+        
+        createButton(button: buttonSendCode, text: "Send Code", constraintTo: labelWellcome, const: 295)
 
-        buttonSendCode.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 295).isActive = true
         buttonSendCode.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
         buttonSendCode.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
         buttonSendCode.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        buttonSendCode.translatesAutoresizingMaskIntoConstraints = false
+//        buttonSendCode.translatesAutoresizingMaskIntoConstraints = false
         buttonSendCode.addTarget(self, action: #selector(sendCode), for: .touchUpInside)
         
         

@@ -102,42 +102,18 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         labelThree.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 326).isActive = true
         labelThree.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 77).isActive = true
         labelThree.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -42).isActive = true
-//        labelThree.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = false
 
         
         // buttonSignUpAccount
         
         createButton(button: buttonSignUpAccount, text: "Sign up my Account", constraintTo: labelWellcome, const: 410)
-//        buttonSignUpAccount.setTitle("Sign up my Account", for: .normal)
-//        buttonSignUpAccount.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
-//        buttonSignUpAccount.titleLabel?.textColor = .white
-//        buttonSignUpAccount.backgroundColor = .darkSkyBlue
-//        buttonSignUpAccount.layer.cornerRadius = 10
         buttonSignUpAccount.addTarget(self, action: #selector(accountCreated), for: .touchUpInside)
-//        view.addSubview(buttonSignUpAccount)
-//
-//        buttonSignUpAccount.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 410).isActive = true
-//        buttonSignUpAccount.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
-//        buttonSignUpAccount.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
-//        buttonSignUpAccount.heightAnchor.constraint(equalToConstant: 60).isActive = true
-//        buttonSignUpAccount.translatesAutoresizingMaskIntoConstraints = false
 
         
         // buttonSignUpPhone
         
         createButton(button: buttonSignUpPhone, text: "Sign up with Phone Number", constraintTo: labelWellcome, const: 477, color: .dark)
-//        buttonSignUpPhone.setTitle("Sign up with Phone Number", for: .normal)
-//        buttonSignUpPhone.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
-//        buttonSignUpPhone.titleLabel?.textColor = .white
-//        buttonSignUpPhone.backgroundColor = .dark
-//        buttonSignUpPhone.layer.cornerRadius = 10
-//        view.addSubview(buttonSignUpPhone)
-//
-//        buttonSignUpPhone.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 477).isActive = true
-//        buttonSignUpPhone.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 37).isActive = true
-//        buttonSignUpPhone.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -37).isActive = true
-//        buttonSignUpPhone.heightAnchor.constraint(equalToConstant: 60).isActive = true
-//        buttonSignUpPhone.translatesAutoresizingMaskIntoConstraints = false
+
         buttonSignUpPhone.addTarget(self, action: #selector(signUpPhone), for: .touchUpInside)
 //
         //buttonSignIn
@@ -145,18 +121,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
 
         createButton(button: buttonSignIn, text: "Already have an account? - Sign In", constraintTo: labelWellcome, const: 540, color: .clear, textColor: .dark.withAlphaComponent(0.5), size: 15)
         
-//        buttonSignIn.setTitle("Already have an account? - Sign In", for: .normal)
-//        buttonSignIn.setTitleColor(.dark.withAlphaComponent(0.5), for: .normal)
-//        buttonSignIn.titleLabel?.font = UIFont(name: "Helvetica", size: 15)
-//
-//
-//
-//        view.addSubview(buttonSignIn)
-//        buttonSignIn.topAnchor.constraint(equalTo: labelWellcome.bottomAnchor, constant: 557).isActive = true
-//        buttonSignIn.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 70).isActive = true
-//        buttonSignIn.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -70).isActive = true
-//        buttonSignIn.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-//        buttonSignIn.translatesAutoresizingMaskIntoConstraints = false
         buttonSignIn.addTarget(self, action: #selector(signIn), for: .touchUpInside)
     }
     

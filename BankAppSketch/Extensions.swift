@@ -152,4 +152,37 @@ extension UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
 
     }
+    func addTextViewBottom() {
+        
+        let textViewBottom = UITextView()
+        
+        let attributedString = NSMutableAttributedString(string: "by clicking start, you agree to our Privacy Policy our Teams and Conditions")
+        attributedString.addAttribute(.link, value: "https://t.me/vilkis", range: .init(location: 36, length: 14))
+        attributedString.addAttribute(.link, value: "https://t.me/vilkis", range: .init(location: 55, length: 20))
+        
+        textViewBottom.backgroundColor = .clear
+        textViewBottom.textColor = UIColor.dark.withAlphaComponent(0.5)
+        textViewBottom.attributedText = attributedString
+        textViewBottom.font = UIFont(name: "Helvetica", size: 13)
+        textViewBottom.isScrollEnabled = false
+        textViewBottom.isEditable = false
+        textViewBottom.textAlignment = .center
+        textViewBottom.isUserInteractionEnabled = true
+        textViewBottom.linkTextAttributes = [
+            .foregroundColor: UIColor.darkSkyBlue,
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+        
+        
+        view.addSubview(textViewBottom)
+        
+        textViewBottom.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -62).isActive = true
+        textViewBottom.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 48).isActive = true
+        textViewBottom.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -48).isActive = true
+        textViewBottom.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        textViewBottom.translatesAutoresizingMaskIntoConstraints = false
+
+        
+        
+    }
 }
