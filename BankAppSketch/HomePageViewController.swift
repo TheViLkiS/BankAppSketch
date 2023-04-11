@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController {
+class HomePageViewController: UIViewController, UIGestureRecognizerDelegate, UIScrollViewDelegate {
 
     var scrollView = UIScrollView()
     let contentView = UIView()
@@ -24,17 +24,28 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+
         scrollView.backgroundColor = .darkSkyBlue
         contentView.backgroundColor = .white
         scrollView.showsVerticalScrollIndicator = false
-        
+        scrollView.delegate = self
+        func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+            return true
+        }
         
         // Setup ScrollView
+         
+        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.isUserInteractionEnabled = false
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
+//        scrollView.isExclusiveTouch = false
+        scrollView.delaysContentTouches = false
+        scrollView.canCancelContentTouches = false
+        
+//        scrollView.isUserInteractionEnabled = false
         
         scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         scrollView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
@@ -68,18 +79,25 @@ class HomePageViewController: UIViewController {
         // 3 Button
         
         
-        contentView.addSubview(createUIViewConteinerAndShadow(image: imageMyCard))
+        
+        let imageMyCardLayer = createUIViewConteinerAndShadow(image: imageMyCard)
+//        imageMyCardLayer.isExclusiveTouch = false
+        view.addSubview(imageMyCard)
+        imageMyCard.isUserInteractionEnabled = true
         imageMyCard.heightAnchor.constraint(equalToConstant: 114).isActive = true
         imageMyCard.widthAnchor.constraint(equalToConstant: 107).isActive = true
         imageMyCard.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         imageMyCard.topAnchor.constraint(equalTo: imageOne.bottomAnchor, constant: 40).isActive = true
         imageMyCard.translatesAutoresizingMaskIntoConstraints = false
+
+        
         
         //recognizer
-        var tap = UITapGestureRecognizer()
+        let tap = UITapGestureRecognizer()
+        tap.delegate = self
         tap.addTarget(self, action: #selector(homePage))
         imageMyCard.addGestureRecognizer(tap)
-        
+        imageMyCardLayer.addGestureRecognizer(tap)
         
         contentView.addSubview(createUIViewConteinerAndShadow(image: imageTransfer))
         imageTransfer.heightAnchor.constraint(equalToConstant: 114).isActive = true
@@ -87,7 +105,8 @@ class HomePageViewController: UIViewController {
         imageTransfer.trailingAnchor.constraint(equalTo: imageMyCard.leadingAnchor,constant: -8).isActive = true
         imageTransfer.topAnchor.constraint(equalTo: imageOne.bottomAnchor, constant: 40).isActive = true
         imageTransfer.translatesAutoresizingMaskIntoConstraints = false
-        
+        imageTransfer.addGestureRecognizer(tap)
+        contentView.addGestureRecognizer(tap)
 
         
         contentView.addSubview(createUIViewConteinerAndShadow(image: imageInsight))
