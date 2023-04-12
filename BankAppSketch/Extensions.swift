@@ -186,3 +186,46 @@ extension UIViewController {
         
     }
 }
+
+
+extension UIViewController {
+    
+    @objc func buttonTouchDown(_ sender: UIButton) {
+        //Connected with Touch Down Action
+        sender.animateButtonDown()
+//        sender.superview?.animateButtonDown()
+    }
+
+    @objc func buttonTouchUpOutside(_ sender: UIButton) {
+        //Connected with Touch Up Outside Action
+        //if touch moved away from button
+        sender.animateButtonUp()
+//        sender.superview?.animateButtonUp()
+    }
+    @objc func buttonTouchUpInside(_ sender: UIButton) {
+        //Connected with Touch Up Inside Action
+        sender.animateButtonUp()
+//        sender.superview?.animateButtonUp()
+        //code to execute when button pressed
+
+    }
+}
+
+extension UIView {
+    
+    func animateButtonDown() {
+        
+        UIView.animate(withDuration: 0.05, delay: 0, options: [.allowUserInteraction, .curveEaseIn], animations: {
+            self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }, completion: nil)
+
+    }
+    
+    func animateButtonUp() {
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.allowUserInteraction, .curveEaseOut], animations: {
+            self.transform = CGAffineTransform.identity
+        }, completion: nil)
+    }
+}
+

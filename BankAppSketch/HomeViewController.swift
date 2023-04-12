@@ -119,7 +119,6 @@ class HomeViewController: UIViewController {
 
     @objc func homePage() {
         let vc = HomeViewController()
-//        vc.view.backgroundColor = .white
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
@@ -146,7 +145,8 @@ class HomeViewController: UIViewController {
 
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
-        
+
+
         
         let viewShadow = UIView(frame: CGRect(x: x, y: y, width: width, height: height))
         viewShadow.backgroundColor = .white
@@ -156,9 +156,13 @@ class HomeViewController: UIViewController {
         viewShadow.layer.shadowColor = UIColor.black.cgColor
         viewShadow.layer.cornerRadius = 10
         
+        
         onView.addSubview(viewShadow)
         onView.heightAnchor.constraint(equalToConstant: image.bounds.height + spacing).isActive = true
         onView.addSubview(button)
     }
+    
+    
+    
 
 }
