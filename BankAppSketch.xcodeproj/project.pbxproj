@@ -18,7 +18,6 @@
 		944BC9C529DEE24300E4054D /* MobileNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944BC9C429DEE24300E4054D /* MobileNumberViewController.swift */; };
 		944BC9C729DF0B3100E4054D /* VerifAccViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944BC9C629DF0B3100E4054D /* VerifAccViewController.swift */; };
 		944BC9CD29E05FA300E4054D /* AccountCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944BC9CC29E05FA300E4054D /* AccountCreatedViewController.swift */; };
-		944BC9CF29E067CC00E4054D /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944BC9CE29E067CC00E4054D /* HomePageViewController.swift */; };
 		944BC9D329E697A100E4054D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944BC9D229E697A100E4054D /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +35,6 @@
 		944BC9C429DEE24300E4054D /* MobileNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNumberViewController.swift; sourceTree = "<group>"; };
 		944BC9C629DF0B3100E4054D /* VerifAccViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifAccViewController.swift; sourceTree = "<group>"; };
 		944BC9CC29E05FA300E4054D /* AccountCreatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreatedViewController.swift; sourceTree = "<group>"; };
-		944BC9CE29E067CC00E4054D /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		944BC9D229E697A100E4054D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +79,6 @@
 				944BC9C429DEE24300E4054D /* MobileNumberViewController.swift */,
 				944BC9C629DF0B3100E4054D /* VerifAccViewController.swift */,
 				944BC9CC29E05FA300E4054D /* AccountCreatedViewController.swift */,
-				944BC9CE29E067CC00E4054D /* HomePageViewController.swift */,
 				944BC9BE29DD90AB00E4054D /* Extensions.swift */,
 				944BC9D229E697A100E4054D /* HomeViewController.swift */,
 			);
@@ -167,7 +164,6 @@
 				944BC9BD29DD903D00E4054D /* WelcomeViewController.swift in Sources */,
 				944BC9D329E697A100E4054D /* HomeViewController.swift in Sources */,
 				944BC9A929DD7CBF00E4054D /* SceneDelegate.swift in Sources */,
-				944BC9CF29E067CC00E4054D /* HomePageViewController.swift in Sources */,
 				944BC9C529DEE24300E4054D /* MobileNumberViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

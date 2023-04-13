@@ -117,7 +117,7 @@ class WelcomeBackViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func homePage(){
-        let vc = HomePageViewController()
+        let vc = HomeViewController()
         vc.view.backgroundColor = .white
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
